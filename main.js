@@ -26,12 +26,15 @@ const showCount = () => {
 }
 
 const showEndTime = () => {
+    if (count === 0) {
+        return;
+    }
     const now = new Date();
     let endTimeNow = new Date();
     endTimeNow.setHours(21);
     endTimeNow.setMinutes(00);
     let endTimeText = (endTimeNow - now)/(60*1000);
-    document.getElementById("end-time").innerHTML = Math.floor(endTimeText / count) + " minuts per torn";
+    document.getElementById("end-time").innerHTML = Math.round(endTimeText / count) + " minuts per torn";
 }
 
 
